@@ -2,13 +2,14 @@ import { APIGatewayEvent, Context, Callback, APIGatewayProxyResult, Handler } fr
 
 import { JSDOM } from 'jsdom';
 
+const d3 = require('d3');
 
 export const handler: Handler = async (
     event: APIGatewayEvent,
     context: Context,
     callback: Callback
   ): Promise<APIGatewayProxyResult> => {
-    const d3 = await import('d3');
+    
     const dom = new JSDOM('');
   (global as any).document = dom.window.document;
   
