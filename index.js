@@ -3,7 +3,7 @@ const {JSDOM} = require("jsdom");
 
 const d3 = require('d3');
 
-export const handler = async (
+exports.handler = async (
     event, context, callback
   ) => {
     
