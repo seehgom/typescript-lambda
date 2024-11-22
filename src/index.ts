@@ -1,14 +1,12 @@
-const { APIGatewayEvent, Context, Callback, APIGatewayProxyResult, Handler } = require('aws-lambda');
-
 const { JSDOM } = require('jsdom');
 
 const d3 = require('d3');
 
-export const handler: Handler = async (
-    event: APIGatewayEvent,
-    context: Context,
-    callback: Callback
-  ): Promise<APIGatewayProxyResult> => {
+export const handler = async (
+    event,
+    context,
+    callback
+  ) => {
     
     const dom = new JSDOM('');
   (global as any).document = dom.window.document;
