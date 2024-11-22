@@ -1,6 +1,6 @@
-import { APIGatewayEvent, Context, Callback, APIGatewayProxyResult, Handler } from 'aws-lambda';
+const { APIGatewayEvent, Context, Callback, APIGatewayProxyResult, Handler } = require('aws-lambda');
 
-import { JSDOM } from 'jsdom';
+const { JSDOM } = require('jsdom');
 
 const d3 = require('d3');
 
