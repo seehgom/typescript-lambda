@@ -1,23 +1,17 @@
-const {JSDOM} = require("jsdom");
-
-
-const d3 = require('d3');
-
-exports.handler = async (
-    event, context, callback
+import { D3Node } from 'd3-node';
+export const handler = async (
+    event: any,
+    context: any,
+    callback: any
   ) => {
-    
-    const dom = new JSDOM('');
-  global.document = dom.window.document;
-  
-  const svg = d3.select(dom.window.document.body)
-    .append('svg')
+  const d3n = new D3Node()
+  d3n.createSVG(10,20)
     .attr('width', 300)
     .attr('height', 300)
     .attr('style', `background: ${ '#ffffff' }`);
 
     return {
         statusCode: 200,
-        body: dom.window.document.querySelector('svg')?.outerHTML,
+        body: d3n.svgString(),
     };
 };
