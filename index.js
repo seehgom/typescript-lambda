@@ -1,15 +1,14 @@
-const { JSDOM } = require('jsdom');
+const {JSDOM} = require("jsdom");
+
 
 const d3 = require('d3');
 
 export const handler = async (
-    event: any,
-    context: any,
-    callback: any
+    event, context, callback
   ) => {
     
     const dom = new JSDOM('');
-  (global as any).document = dom.window.document;
+  global.document = dom.window.document;
   
   const svg = d3.select(dom.window.document.body)
     .append('svg')
@@ -19,6 +18,6 @@ export const handler = async (
 
     return {
         statusCode: 200,
-        body: dom.window.document.querySelector('svg')?.outerHTML!,
+        body: dom.window.document.querySelector('svg')?.outerHTML,
     };
 };
