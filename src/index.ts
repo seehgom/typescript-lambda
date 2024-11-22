@@ -1,7 +1,8 @@
 import { APIGatewayEvent, Context, Callback, APIGatewayProxyResult, Handler } from 'aws-lambda';
 
-import * as d3 from 'd3';
 import { JSDOM } from 'jsdom';
+const d3 = await import('d3');
+
 
 export const handler: Handler = async (
     event: APIGatewayEvent,
